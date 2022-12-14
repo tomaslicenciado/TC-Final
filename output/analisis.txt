@@ -1,0 +1,47 @@
+TABLA DE SíMBOLOS:
+Contexto: GLOBAL {
+	Contexto: print {
+		VARIABLE - ID: a, Tipo: char*, Inicializado: NO, Utilizado: NO
+	}
+	Contexto: printf {
+		VARIABLE - ID: a, Tipo: char*, Inicializado: NO, Utilizado: NO
+		VARIABLE - ID: b, Tipo: int, Inicializado: NO, Utilizado: NO
+	}
+	Contexto: suma {
+		VARIABLE - ID: a, Tipo: int, Inicializado: NO, Utilizado: SI
+		VARIABLE - ID: b, Tipo: int, Inicializado: NO, Utilizado: SI
+	}
+	Contexto: holamundo {
+	}
+	Contexto: acceso {
+		VARIABLE - ID: edad, Tipo: char, Inicializado: NO, Utilizado: SI
+	}
+	Contexto: main {
+		Contexto: while {
+		}
+		VARIABLE - ID: resultado, Tipo: char, Inicializado: SI, Utilizado: SI
+	}
+	FUNCION - ID: suma, Tipo: int, Inicializado: SI, Utilizado: NO, Args: [int, int]
+	FUNCION - ID: funcon, Tipo: int, Inicializado: NO, Utilizado: NO, Args: []
+	VARIABLE - ID: a, Tipo: int, Inicializado: SI, Utilizado: SI
+	FUNCION - ID: print, Tipo: void, Inicializado: SI, Utilizado: SI, Args: [char*]
+	VARIABLE - ID: b, Tipo: double, Inicializado: SI, Utilizado: NO
+	VARIABLE - ID: c, Tipo: double, Inicializado: SI, Utilizado: NO
+	FUNCION - ID: acceso, Tipo: void, Inicializado: SI, Utilizado: SI, Args: [char]
+	FUNCION - ID: holamundo, Tipo: void, Inicializado: SI, Utilizado: SI, Args: [void]
+	FUNCION - ID: main, Tipo: int, Inicializado: SI, Utilizado: NO, Args: [void]
+	FUNCION - ID: printf, Tipo: void, Inicializado: SI, Utilizado: SI, Args: [char*, int]
+}
+
+
+WARNINGS
+Warning: El identificador a declarado no ha sido utilizado
+Warning: El identificador a declarado no ha sido utilizado
+Warning: El identificador b declarado no ha sido utilizado
+Warning: El identificador suma declarado no ha sido utilizado
+Warning: El identificador funcon declarado no ha sido utilizado
+Warning: El identificador b declarado no ha sido utilizado
+Warning: El identificador c declarado no ha sido utilizado
+Warning: El identificador main declarado no ha sido utilizado
+
+ERRORES

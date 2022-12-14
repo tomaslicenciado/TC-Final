@@ -86,7 +86,7 @@ public class Cuartetos {
     }
 
     public String getThreeAddressCode(){
-        String TAC="Código de tres direcciones:\n---------------------------------------------------------------\n";
+        String TAC="Código de tres direcciones:\n\n";
         Quartet<String,String,String,String> quartet;
         for (int i = 0; i < cuartetos.size(); i++) {
             quartet = cuartetos.get(i);
@@ -134,7 +134,6 @@ public class Cuartetos {
             }
 
         }
-        TAC += "\n---------------------------------------------------------------\n";
         return TAC;
     }
 

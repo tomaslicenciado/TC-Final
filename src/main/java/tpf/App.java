@@ -1,5 +1,7 @@
 package tpf;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 
 import org.antlr.v4.runtime.CharStream;
@@ -27,13 +29,28 @@ public class App
             System.out.println("No se genera el código de tres direcciones por la presencia de errores");
         }
         else{
+            File fileout = new File("output/analisis.txt");
+            FileWriter output = new FileWriter(fileout,true);
             miVisitor visitor = new miVisitor(cuartetos);
             visitor.visit(t);
             String TAC = cuartetos.getThreeAddressCode();
-            System.out.println(TAC);
             cuartetos.optimizar();
-            TAC = cuartetos.getThreeAddressCode();
-            System.out.println(TAC);
+            String TACOptimized = cuartetos.getThreeAddressCode();
+            try {
+                output.write("\n----------------------------------------------------------------------------------------------------------\n");
+                output.write("A continuación se imprime el código de tres direcciones sin optimizar:\n");
+                output.write("\n----------------------------------------------------------------------------------------------------------\n");
+                output.write(TAC);
+                output.write("\n----------------------------------------------------------------------------------------------------------\n");
+                output.write("\n----------------------------------------------------------------------------------------------------------\n");
+                output.write("A continuación, imprimimos el código de tres direcciones con una revisión de optimización:\n");
+                output.write("\n----------------------------------------------------------------------------------------------------------\n");
+                output.write(TACOptimized);
+                output.write("\n----------------------------------------------------------------------------------------------------------\n");
+                output.close();
+            } catch (Exception e) {
+                System.err.println(e);
+            }
         }
     }
 }

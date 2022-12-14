@@ -45,3 +45,227 @@ Warning: El identificador c declarado no ha sido utilizado
 Warning: El identificador main declarado no ha sido utilizado
 
 ERRORES
+
+----------------------------------------------------------------------------------------------------------
+A continuación se imprime el código de tres direcciones sin optimizar:
+
+----------------------------------------------------------------------------------------------------------
+Código de tres direcciones:
+---------------------------------------------------------------
+proc print
+pop t1
+endp print
+
+proc printf
+pop t2
+pop t3
+endp printf
+
+proc suma
+pop t4
+pop t5
+t6 := t4 + t5
+push t6
+endp suma
+
+a :=  0
+b :=  30
+t7 := 31 * 5
+t8 := 42 / 3
+t9 := t7 + t8
+t10 := a == 3
+if (t10) goto L1
+t11 :=  0
+goto L2
+L1: t11 :=  1
+L2: if () goto L3
+t12 :=  0
+goto L4
+L3: if (t11) goto L5
+t12 :=  0
+goto L4
+L5: t12 :=  1
+L4: if (t12) goto L6
+t13 :=  0
+goto L7
+L6: t13 :=  1
+L7: c :=  t13
+proc holamundo
+push "Hola Mundo\n"
+call print
+pop t14
+push 
+endp holamundo
+
+proc acceso
+pop t15
+t16 := t15 < 18
+if (t16) goto L8
+t17 :=  0
+goto L9
+L8: t17 :=  1
+L9: t18 := t17 == 0
+if (t18) goto L10
+t17 :=  0
+goto L11
+L10: t17 :=  1
+L11: if (t17) goto L13
+goto L12
+L13: push "No puedes acceder.\n"
+call print
+pop t19
+L12: push "Bienvenido.\n"
+call print
+pop t20
+push 
+endp acceso
+
+proc main
+call holamundo
+pop t21
+push 18
+call acceso
+pop t22
+push 17
+call acceso
+pop t23
+t24 := 5 + 2
+resultado :=  t24
+push resultado
+push "Resultado de la suma: %i\n"
+call printf
+pop t25
+t26 := 5 - 2
+resultado :=  t26
+push resultado
+push "Resultado de la resta:%i\n"
+call printf
+pop t27
+t28 := 5 * 2
+resultado :=  t28
+push resultado
+push "Resultado de la multiplicación: %i\n"
+call printf
+pop t29
+t30 := 5 / 2
+resultado :=  t30
+push resultado
+push "Resultado de la división:%i\n"
+call printf
+pop t31
+L14: if (1) goto L16
+goto L15
+L16: push "Chau"
+call print
+pop t32
+goto L14
+L15: push 0
+endp main
+
+
+---------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------
+A continuación, imprimimos el código de tres direcciones con una revisión de optimización:
+
+----------------------------------------------------------------------------------------------------------
+Código de tres direcciones:
+---------------------------------------------------------------
+proc print
+pop t1
+endp print
+
+proc printf
+pop t2
+pop t3
+endp printf
+
+proc suma
+pop t4
+pop t5
+t6 := t4 + t5
+push t6
+endp suma
+
+t7 :=  155
+t8 :=  14
+t9 := t7 + t8
+t10 := a == 3
+if (t10) goto L1
+goto L2
+L1: L2: if () goto L3
+goto L4
+L3: if (t11) goto L5
+goto L4
+L5: L4: if (t12) goto L6
+goto L7
+L6: L7: proc holamundo
+push "Hola Mundo\n"
+call print
+pop t14
+push 
+endp holamundo
+
+proc acceso
+pop t15
+t16 := t15 < 18
+if (t16) goto L8
+goto L9
+L8: L9: t18 := t17 == 0
+if (t18) goto L10
+goto L11
+L10: L11: if (t17) goto L13
+goto L12
+L13: push "No puedes acceder.\n"
+call print
+pop t19
+L12: push "Bienvenido.\n"
+call print
+pop t20
+push 
+endp acceso
+
+proc main
+call holamundo
+pop t21
+push 18
+call acceso
+pop t22
+push 17
+call acceso
+pop t23
+resultado :=  7
+push resultado
+push "Resultado de la suma: %i\n"
+call printf
+pop t25
+resultado :=  3
+push resultado
+push "Resultado de la resta:%i\n"
+call printf
+pop t27
+resultado :=  10
+push resultado
+push "Resultado de la multiplicación: %i\n"
+call printf
+pop t29
+resultado :=  2
+push resultado
+push "Resultado de la división:%i\n"
+call printf
+pop t31
+L14: if (1) goto L16
+goto L15
+L16: push "Chau"
+call print
+pop t32
+goto L14
+L15: push 0
+endp main
+
+
+---------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------

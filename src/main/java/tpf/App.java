@@ -32,6 +32,7 @@ public class App
             String TAC = cuartetos.getThreeAddressCode();
             System.out.println(TAC);
             cuartetos.optimizar();
+            TAC = cuartetos.getThreeAddressCode();
             System.out.println(TAC);
         }
     }

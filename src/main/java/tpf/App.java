@@ -11,6 +11,7 @@ public class App
 {
     public static void main( String[] args ) throws IOException
     {
+        Cuartetos cuartetos = new Cuartetos();
         System.out.println( "Bienvenido al compilador" );
         CharStream input = CharStreams.fromFileName("input/programa.txt");
         tpfLexer lexer = new tpfLexer(input);
@@ -26,8 +27,11 @@ public class App
             System.out.println("No se genera el código de tres direcciones por la presencia de errores");
         }
         else{
-            miVisitor visitor = new miVisitor();
-            String TAC = visitor.visit(t);
+            miVisitor visitor = new miVisitor(cuartetos);
+            visitor.visit(t);
+            String TAC = cuartetos.getThreeAddressCode();
+            System.out.println(TAC);
+            cuartetos.optimizar();
             System.out.println(TAC);
         }
     }

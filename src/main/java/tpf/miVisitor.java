@@ -41,16 +41,21 @@ import tpf.tpfParser.TermContext;
 import tpf.tpfParser.ValorContext;
 
 public class miVisitor extends tpfBaseVisitor<String> {
-    private Cuartetos cuartetos = new Cuartetos();
+    private Cuartetos cuartetos;
+
+    
+    public miVisitor(Cuartetos cuartetos) {
+        this.cuartetos = cuartetos;
+    }
+
+    public miVisitor() {
+        this.cuartetos = new Cuartetos();
+    }
 
     @Override
     public String visitSi(SiContext ctx) {
         visit(ctx.opciones());
-        System.out.println("SIN OPTIMIZAR:\n");
-        System.out.println(this.cuartetos.getThreeAddressCode());
-        System.out.println("\n");
-        this.cuartetos.optimizar();
-        return this.cuartetos.getThreeAddressCode();
+        return "";
     }
 
     @Override
